@@ -15,7 +15,7 @@ const bookingInput = z.object({
   notes: z.string().trim().max(3000).optional(),
 });
 
-const isWithinWorkingHours = (time: string) => {
+export const isWithinWorkingHours = (time: string) => {
   const [hours, minutes] = time.split(":").map(Number);
   const totalMinutes = hours * 60 + minutes;
   return totalMinutes >= 8 * 60 && totalMinutes < 18 * 60;
